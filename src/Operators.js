@@ -17,3 +17,6 @@ const Operators = props => {
 
 export default Operators; 
 
+Operators.propTypes = {
+    operatorClick: PropTypes.func
+}

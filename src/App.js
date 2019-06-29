@@ -5,20 +5,17 @@ import NumPad from './NumPad';
 
 import './App.css';
 import './Calculator.css';
-
-const regex = /\+|\-|\*|\//g;
-
+const regex = new RegExp(/\+|-|\*|\//g);
 
 class App extends Component{
     state = {
-        result: null,
         input: '',
         lastInput: ''
     }
 
     addInput = async (currInput) => {
         let storeLastInput = '';
-        // let newInput = this.state.input + currInput;
+
         storeLastInput = this.state.input === '' ?  '' : this.state.input[this.state.input.length-1];
         await this.setState({
             lastInput: storeLastInput
@@ -28,7 +25,7 @@ class App extends Component{
             if(storeLastInput !== currInput){
                 let changeOperator = this.state.input.split('');
                 changeOperator.splice(this.state.input.length-1,1,currInput)
-                //setSTATE
+
                 this.setState({
                     input: changeOperator.join('')
                 });
@@ -42,15 +39,13 @@ class App extends Component{
                 })
             }
         }
-
-        console.log(this.state)
+        // console.log(this.state)
     }
 
     clear = () => {
         console.log('clearing');
 
         this.setState({ 
-            result: null,
             input: '',
             lastInput: ''
         });
@@ -95,7 +90,7 @@ class App extends Component{
                 subtraction = getOperators.indexOf('-');
             }
     
-            console.log(getNumbers);
+            //console.log(getNumbers);
             this.setState({
                 input: getNumbers
             });

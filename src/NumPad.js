@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const NumPad = props => {
     const { numberClick, clear } = props;
@@ -26,4 +26,9 @@ const NumPad = props => {
     );
 }
 
-export default NumPad; 
+export default NumPad;
+
+NumPad.propTypes = {
+    numberClick: PropTypes.func,
+    clear: PropTypes.func
+}
