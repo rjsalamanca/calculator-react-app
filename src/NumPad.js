@@ -3,27 +3,24 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 const NumPad = props => {
+    const { numberClick, clear } = props;
+    const numPad = [1,2,3,4,5,6,7,8,9,0,'.'].map((button, ind) => 
+            <div key={ind} onClick={(e) => numberClick(button)}>{button}</div>
+        );
     return(                        
         <div className="leftPanel">
             <div className="numbers">
-                <div>7</div>
-                <div>8</div>
-                <div>9</div>
+                {numPad.slice(6,9)}
             </div>
             <div className="numbers">
-                <div>4</div>
-                <div>5</div>
-                <div>6</div>
+                {numPad.slice(3,6)}
             </div>
             <div className="numbers">
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
+                {numPad.slice(0,3)}
             </div>
             <div className="numbers">
-                <div>0</div>
-                <div>.</div>
-                <div id="clear">C</div>
+                {numPad.slice(9,11)}
+                <div onClick={(e) => clear()}>C</div>
             </div>
         </div>
     );
